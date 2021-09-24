@@ -10,6 +10,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CollarCompanionV3">
         <activity
+            android:name=".ConnectActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UserInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DogInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AddAPetActivity"
+            android:exported="true" />
+        <activity
+            android:name=".NotificationsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:exported="true" />
+        <activity
             android:name=".Activity2"
             android:exported="true"
             android:label="@string/title_activity_2" />

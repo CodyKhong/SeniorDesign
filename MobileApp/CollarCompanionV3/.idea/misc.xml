@@ -4,7 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_2.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_5.xml" value="0.12183383991894631" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_about_us.xml" value="0.22" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_add_apet.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_connect.xml" value="0.5" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_dog_info.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_notifications.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/activity_user_info.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/fragment_about_us.xml" value="0.1" />
         <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
         <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/fragment_home.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/codeth/AndroidStudioProjects/CollarCompanionV3/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
