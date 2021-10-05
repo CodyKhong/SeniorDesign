@@ -21,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.collarcompanionv3.AboutUsActivity;
 import com.example.collarcompanionv3.Activity2;
 import com.example.collarcompanionv3.AddAPetActivity;
+import com.example.collarcompanionv3.AdminDashboard;
 import com.example.collarcompanionv3.ConnectActivity;
 import com.example.collarcompanionv3.DogInfoActivity;
 import com.example.collarcompanionv3.MainActivity;
@@ -33,7 +34,7 @@ public class NotificationsFragment extends Fragment {
     ListView lv;
     SearchView searchView;
     ArrayAdapter<String> adapter;
-    String[] data = {"Connect A Device","User Information", "Dog Information", "Add A Pet", "Notifications", "About Us", "Log Out","FUCCCCCCKKKKKK"};
+    String[] data = {"Connect A Device","User Information", "Dog Information", "Add A Pet", "Notifications", "About Us", "Log Out","Admin Dashboard"};
 
     private NotificationsViewModel notificationsViewModel;
     private FragmentNotificationsBinding binding;
@@ -95,6 +96,10 @@ public class NotificationsFragment extends Fragment {
         }
         else if (position==6){
             Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
+        }
+        else if (position==7){
+            Intent intent = new Intent(getActivity(), AdminDashboard.class);
             startActivity(intent);
         }
 
