@@ -38,10 +38,10 @@ public class BLEController {
         public void onServicesDiscovered(BluetoothGatt gatt, int status) {
             if(null == btGattChar) {
                 for (BluetoothGattService service : gatt.getServices()) {
-                    if (service.getUuid().toString().toUpperCase().startsWith("4fafc201")) {
+                    if (service.getUuid().toString().toUpperCase().startsWith("0000ffe0")) {
                         List<BluetoothGattCharacteristic> gattCharacteristics = service.getCharacteristics();
                         for (BluetoothGattCharacteristic bgc : gattCharacteristics) {
-                            if (bgc.getUuid().toString().toUpperCase().startsWith("beb5483e")) {
+                            if (bgc.getUuid().toString().toUpperCase().startsWith("0000ffe1")) {
                                 int chprop = bgc.getProperties();
                                 if (((chprop & BluetoothGattCharacteristic.PROPERTY_WRITE) | (chprop & BluetoothGattCharacteristic.PROPERTY_WRITE_NO_RESPONSE)) > 0) {
                                     btGattChar = bgc;
@@ -123,7 +123,7 @@ public class BLEController {
     };
 
     private boolean isThisTheDevice(BluetoothDevice device) {
-        return null != device.getName() && device.getName().startsWith("ESP32-BLE-SERVER");
+        return null != device.getName() && device.getName().startsWith("this_is_the_fucking_BLE");
     }
 
     private void deviceFound(BluetoothDevice device) {

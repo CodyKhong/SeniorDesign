@@ -21,14 +21,12 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
     private BLEController bleController;
     private String deviceAddress;
     private boolean isLEDOn = false;
+    private boolean isAlive = false;
     private Button cntButton;
     private Button disButton;
     private Button switchBut;
     private TextView logText;
-//    Button cntButton = (Button) findViewById(R.id.connectButton);
-//    Button disButton = (Button) findViewById(R.id.disconnectButton);
-//    Button switchBut= (Button) findViewById(R.id.switchButton);
-//    TextView logText = (TextView) findViewById(R.id.logView);
+    private Thread heartBeatThread = null;
 
 
     @Override
@@ -48,7 +46,36 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
         checkBLESupport();
         checkPermissions();
 
+        disableButtons();
+
     }
+
+//    public void startHeartBeat(){
+//        this.isAlive = true;
+//        this.heartBeatThread = createHeartBeatThread();
+//        this.heartBeatThread.start();
+//    }
+//
+//    public void stopHeartBeat(){
+//        if (this.isAlive){
+//            this.isAlive=false;
+//            this.heartBeatThread.interrupt();
+//        }
+//    }
+//
+//    private Thread createHeartBeatThread(){
+//        return run()
+//        {
+//            while(MainActivity.this.isAlive){
+//                try{
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }{return;}
+//            }
+//        }
+//    }
+
 
     private void log(final String text) {
         runOnUiThread(new Runnable() {
@@ -95,27 +122,32 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
             @Override
             public void run() {
                 log("[BLE]\tConnected");
-                cntButton.setEnabled(false);
+                switchBut.setEnabled(true);
                 disButton.setEnabled(true);
             }
         });
+//        startHeartBeat();
     }
 
     @Override
     public void BLEControllerDisconnected() {
+        log("[BLE]\tDisconnected");
+        disableButtons();
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                log("[BLE]\tDisconnected");
                 cntButton.setEnabled(true);
-                disButton.setEnabled(false);
             }
         });
+        this.isLEDOn=false;
+//        stopHeartBeat();
     }
 
     @Override
     public void BLEDeviceFound(String name, String address) {
         log("Device " + name + " found with address " + address);
+        this.deviceAddress=address;
+        this.cntButton.setEnabled(true);
     }
 
     @Override
@@ -124,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
         this.bleController.addBLEControllerListener(this);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            log("[BLE]\tSearching for...");
+            log("[BLE]\tSearching for this_is_the_fucking_BLE...");
             this.bleController.init();
         }
     }
@@ -142,6 +174,8 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
                 cntButton.setEnabled(false);
                 log("Connecting...");
                 bleController.connectToDevice(deviceAddress);
+                switchBut.setEnabled(true);
+                disButton.setEnabled(true);
             }
         });
     }
@@ -154,6 +188,7 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
                 disButton.setEnabled(false);
                 log("Disconnecting...");
                 bleController.disconnect();
+                cntButton.setEnabled(true);
             }
         });
     }
@@ -166,6 +201,17 @@ public class MainActivity extends AppCompatActivity implements BLEControllerList
             public void onClick(View v) {
                 isLEDOn = !isLEDOn;
                 remoteControl.switchLED(isLEDOn);
+            }
+        });
+    }
+
+    private void disableButtons(){
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                cntButton.setEnabled(false);
+                disButton.setEnabled(false);
+                switchBut.setEnabled(false);
             }
         });
     }

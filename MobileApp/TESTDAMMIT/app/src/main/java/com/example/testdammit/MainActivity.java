@@ -239,7 +239,7 @@ public class MainActivity extends AppCompatActivity {
                                          int status) {
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 BluetoothGattService mGattService =
-                        mBluetoothGatt.getService(UUID.fromString("4fafc201-1fb5-459e-8fcc-c5c9c331914b"));
+                        mBluetoothGatt.getService(UUID.fromString("0000ffe0-0000-1000-8000-00805f9b34fb"));
                 if (mGattService != null) {
                     Log.i("onServicesDiscovered",
                             "Service characteristic UUID found: " + mGattService.getUuid().toString());
