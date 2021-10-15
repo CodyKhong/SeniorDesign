@@ -1,1 +1,1 @@
-hello
+This is Jesse's code repository for storing test code as well as opperational code.
