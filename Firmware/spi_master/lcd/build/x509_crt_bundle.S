@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/jjray/esp/spi_master/lcd/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/SD2_repo/SeniorDesign/Firmware/spi_master/lcd/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 .section .rodata.embedded

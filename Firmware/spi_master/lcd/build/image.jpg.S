@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/jjray/esp/spi_master/lcd/main/image.jpg
+/* * Data converted from C:/SD2_repo/SeniorDesign/Firmware/spi_master/lcd/main/image.jpg
  */
 .data
 .section .rodata.embedded

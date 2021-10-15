@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/jjray/esp/spi_master/lcd/components/tjpgd
+# Install script for directory: C:/SD2_repo/SeniorDesign/Firmware/spi_master/lcd/components/tjpgd
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

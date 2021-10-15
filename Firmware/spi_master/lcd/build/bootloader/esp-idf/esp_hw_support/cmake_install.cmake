@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/jjray/esp/spi_master/lcd/build/bootloader/esp-idf/esp_hw_support/port/esp32/cmake_install.cmake")
+  include("C:/SD2_repo/SeniorDesign/Firmware/spi_master/lcd/build/bootloader/esp-idf/esp_hw_support/port/esp32/cmake_install.cmake")
 
 endif()
 
