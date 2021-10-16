@@ -7,9 +7,9 @@ public class RemoteControl {
     private final static byte LED_STATE = 0x1;
     private final static byte LED_COLOR = 0x2;
 
-//    private final static byte red = 0x11;
-//    private final static byte blue = 0x22;
-//    private final static byte green = 0x33;
+    private final static byte red = 0x11;
+    private final static byte green = 0x22;
+    private final static byte blue = 0x33;
 
     private final static byte VALUE_OFF = 0x11;
     private final static byte VALUE_ON = 0x10;
@@ -35,12 +35,11 @@ public class RemoteControl {
         this.bleController.sendData(createControlWord(LED_STATE, on?VALUE_ON:VALUE_OFF));
     }
 
-    public void DATASEND(String RGB) {
+    public void DATASEND(int RGB) {
 
-        byte RedByte = (byte) RGB.charAt(0);
-        byte GreenByte = (byte) RGB.charAt(1);
-        byte BlueByte = (byte) RGB.charAt(2);
-
+        byte RedByte = (byte)((RGB>>16) & 0xFF);
+        byte GreenByte = (byte)((RGB>>8) & 0xFF);
+        byte BlueByte = (byte)(RGB & 0xFF);
         this.bleController.sendData(createControlWord(LED_COLOR, RedByte,GreenByte,BlueByte));
     }
 

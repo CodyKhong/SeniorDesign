@@ -98,8 +98,17 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
                                 btnTEXT.setTextColor(color);
                                 String hexColor = Integer.toHexString(color).substring(2);
                                 btnTEXT.setText(hexColor);
-                                remoteControl.DATASEND(hexColor);
-                                log("LED switched "+ hexColor);
+                                remoteControl.DATASEND(color);
+                                byte RedByte = (byte)((color>>16) & 0xFF);
+                                String R = String.format("%8s", Integer.toBinaryString(RedByte & 0xFF)).replace(' ', '0');
+                                byte GreenByte = (byte)((color>>8) & 0xFF);
+                                String G = String.format("%8s", Integer.toBinaryString(GreenByte & 0xFF)).replace(' ', '0');
+                                byte BlueByte = (byte)(color & 0xFF);
+                                String B = String.format("%8s", Integer.toBinaryString(BlueByte & 0xFF)).replace(' ', '0');
+                                log("LED switched to: " + hexColor);
+                                log("Red: "+ R);
+                                log("Green: "+ G);
+                                log("Blue: "+ B);
                             }
 
                             @Override
