@@ -1,7 +1,9 @@
-package com.example.bletest;
+package com.example.collarcompanionv3;
+
+import java.nio.charset.StandardCharsets;
 
 public class RemoteControl {
-//    private final static byte START = 0x11;
+    //    private final static byte START = 0x11;
     private final static byte LED_STATE = 0x1;
     private final static byte LED_COLOR = 0x2;
 
@@ -33,11 +35,13 @@ public class RemoteControl {
         this.bleController.sendData(createControlWord(LED_STATE, on?VALUE_ON:VALUE_OFF));
     }
 
-    public void DATASEND(int RGB) {
+    public void DATASEND(String RGB) {
 
-        byte RGBByte = (byte)RGB;
+        byte RedByte = (byte) RGB.charAt(0);
+        byte GreenByte = (byte) RGB.charAt(1);
+        byte BlueByte = (byte) RGB.charAt(2);
 
-        this.bleController.sendData(createControlWord(LED_COLOR, RGBByte));
+        this.bleController.sendData(createControlWord(LED_COLOR, RedByte,GreenByte,BlueByte));
     }
 
 //    public void heartbeat() {

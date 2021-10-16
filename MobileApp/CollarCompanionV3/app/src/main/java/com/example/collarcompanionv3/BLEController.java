@@ -1,4 +1,6 @@
-package com.example.bletest;
+package com.example.collarcompanionv3;
+
+import static android.bluetooth.BluetoothProfile.GATT;
 
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
@@ -16,8 +18,6 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static android.bluetooth.BluetoothProfile.GATT;
 
 public class BLEController {
     private static BLEController instance;
@@ -165,4 +165,3 @@ public class BLEController {
         this.bluetoothGatt.disconnect();
     }
 }
-
