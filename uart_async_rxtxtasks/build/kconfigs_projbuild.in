@@ -1,4 +1,0 @@
-source "C:/Users/allan/Desktop/Codes/esp/components/app_update/Kconfig.projbuild"
-source "C:/Users/allan/Desktop/Codes/esp/components/bootloader/Kconfig.projbuild"
-source "C:/Users/allan/Desktop/Codes/esp/components/esptool_py/Kconfig.projbuild"
-source "C:/Users/allan/Desktop/Codes/esp/components/partition_table/Kconfig.projbuild"
