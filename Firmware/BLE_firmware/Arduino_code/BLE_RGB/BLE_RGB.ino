@@ -50,13 +50,6 @@ bool deviceConnected = false; // connection-status flag
 static int commandLength = 0;
 char receivedCommand[MAX_DATA_SIZE] = {}; // commands via bluetooth stored here
 
-BLEServer *pServer = BLEDevice::createServer();
-BLEService *pService = pServer->createService(SERVICE_UUID);  // Create the BLE Service
-BLECharacteristic *pCharacteristic = pService->createCharacteristic(
-                                        CHARACTERISTIC_UUID_RX,
-                                        BLECharacteristic::PROPERTY_READ|
-                                        BLECharacteristic::PROPERTY_WRITE);
-
 void IRAM_ATTR onTimer() 
 {
   static byte state = LOW;
@@ -106,8 +99,8 @@ class MyCallbacks: public BLECharacteristicCallbacks
   }
 };
 
-void setup() 
-{
+void setup() {
+ 
   // this resets all the neopixels to an off state
   strip.Begin();
   strip.Show();
@@ -115,7 +108,11 @@ void setup()
   BLEDevice::init("this_is_the_fucking_BLE"); // Give it a name
 
   // Create the BLE Server
+  BLEServer *pServer = BLEDevice::createServer();
   pServer->setCallbacks(new MyServerCallbacks());
+
+  // Create the BLE Service
+  BLEService *pService = pServer->createService(SERVICE_UUID);
 
   // Create a BLE
   /*BLECharacteristic *pCharacteristic = pService->createCharacteristic(
@@ -123,6 +120,10 @@ void setup()
                       BLECharacteristic::PROPERTY_NOTIFY
                     );
     pCharacteristic->addDescriptor(new BLE2902());*/
+  BLECharacteristic *pCharacteristic = pService->createCharacteristic(
+                                         CHARACTERISTIC_UUID_RX,
+                                         BLECharacteristic::PROPERTY_WRITE
+                                       );
   pCharacteristic->setCallbacks(new MyCallbacks());
 
   // Start the service
@@ -249,44 +250,44 @@ int ledColor(byte red, byte green, byte blue)
   return 0;
 }
 
-String createCMD(byte dataType, byte dataSize, byte *cmdData)
-{
-  uint8_t cmd[dataSize + 2];
-  cmd[0] = dataType;
-  cmd[1] = dataSize;
-  for(int i = 0; i < dataSize; i++)
-  {
-    cmd[i + 2] = cmdData[i];
-  }
-  cmd[dataSize + 1] = '\0';
+// String createCMD(byte dataType, byte dataSize, byte *cmdData)
+// {
+//   uint8_t cmd[dataSize + 2];
+//   cmd[0] = dataType;
+//   cmd[1] = dataSize;
+//   for(int i = 0; i < dataSize; i++)
+//   {
+//     cmd[i + 2] = cmdData[i];
+//   }
+//   cmd[dataSize + 1] = '\0';
 
-  return cmd;
-}
+//   return cmd;
+// }
 
-// Receive data, send data through BLE, return 0 if data transmit success
-int sendData(String cmd)
-{
-  pCharacteristic->setValue(cmd);
+// // Receive data, send data through BLE, return 0 if data transmit success
+// int sendData(String cmd)
+// {
+//   pCharacteristic->setValue(cmd);
   
-  return 0;
-}
+//   return 0;
+// }
 
-int sendTemp()
-{
-  byte *data = {0x55};
-  printf("Received temp request.\n");
-  sendData(createCMD(TEMP_DATA, 1, data));
-  printf("Temp data sent.\n");
+// int sendTemp()
+// {
+//   byte *data = {0x55};
+//   printf("Received temp request.\n");
+//   sendData(createCMD(TEMP_DATA, 1, data));
+//   printf("Temp data sent.\n");
 
-  return 0;
-}
+//   return 0;
+// }
 
-int sendAcc()
-{
-  printf("Received accelerometer request.\n");
+// int sendAcc()
+// {
+//   printf("Received accelerometer request.\n");
  
-  return 0;
-}
+//   return 0;
+// }
 
 void readCommand()
 {
@@ -310,17 +311,17 @@ void readCommand()
       break;
     }
 
-    case TEMP_REQ:
-    {
-      sendTemp();
-      break;
-    }
+    // case TEMP_REQ:
+    // {
+    //   sendTemp();
+    //   break;
+    // }
 
-    case ACC_REQ:
-    {
-      sendAcc();
-      break;
-    }
+    // case ACC_REQ:
+    // {
+    //   sendAcc();
+    //   break;
+    // }
 
     default:
       break;      
