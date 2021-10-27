@@ -226,12 +226,12 @@ void blink_1()
 int ledColor()
 { 
   printf("red: %02x, green: %02x, blue: %02x\n", red, green, blue);
-  RgbColor Phone((uint8_t)red, (uint8_t)green, (uint8_t)blue);
-  strip.SetPixelColor(0, Phone);
-  strip.SetPixelColor(1, Phone);
-  strip.SetPixelColor(2, Phone);
-  strip.SetPixelColor(3, Phone);
-  strip.SetPixelColor(4, Phone);
+  RgbColor color((uint8_t)red, (uint8_t)green, (uint8_t)blue);
+  strip.SetPixelColor(0, color);
+  strip.SetPixelColor(1, color);
+  strip.SetPixelColor(2, color);
+  strip.SetPixelColor(3, color);
+  strip.SetPixelColor(4, color);
   strip.Show();
 
   return 0;
