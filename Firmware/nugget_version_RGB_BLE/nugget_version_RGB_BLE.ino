@@ -50,13 +50,6 @@ bool deviceConnected = false; // connection-status flag
 static int commandLength = 0;
 char receivedCommand[MAX_DATA_SIZE] = {}; // commands via bluetooth stored here
 
-BLEServer *pServer = BLEDevice::createServer();
-BLEService *pService = pServer->createService(SERVICE_UUID);  // Create the BLE Service
-BLECharacteristic *pCharacteristic = pService->createCharacteristic(
-                                        CHARACTERISTIC_UUID_RX,
-                                        BLECharacteristic::PROPERTY_READ|
-                                        BLECharacteristic::PROPERTY_WRITE);
-
 void IRAM_ATTR onTimer() 
 {
   static byte state = LOW;
@@ -106,8 +99,8 @@ class MyCallbacks: public BLECharacteristicCallbacks
   }
 };
 
-void setup() 
-{
+void setup() {
+ 
   // this resets all the neopixels to an off state
   strip.Begin();
   strip.Show();
@@ -115,7 +108,11 @@ void setup()
   BLEDevice::init("this_is_the_fucking_BLE"); // Give it a name
 
   // Create the BLE Server
+  BLEServer *pServer = BLEDevice::createServer();
   pServer->setCallbacks(new MyServerCallbacks());
+
+  // Create the BLE Service
+  BLEService *pService = pServer->createService(SERVICE_UUID);
 
   // Create a BLE
   /*BLECharacteristic *pCharacteristic = pService->createCharacteristic(
@@ -123,6 +120,10 @@ void setup()
                       BLECharacteristic::PROPERTY_NOTIFY
                     );
     pCharacteristic->addDescriptor(new BLE2902());*/
+  BLECharacteristic *pCharacteristic = pService->createCharacteristic(
+                                         CHARACTERISTIC_UUID_RX,
+                                         BLECharacteristic::PROPERTY_WRITE
+                                       );
   pCharacteristic->setCallbacks(new MyCallbacks());
 
   // Start the service
