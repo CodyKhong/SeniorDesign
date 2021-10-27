@@ -32,9 +32,15 @@ const uint8_t PixelPin = 18;  // make sure to set this to the correct pin, ignor
 // three element pixels, in different order and speeds
 NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
 
-RgbColor white(colorSaturation, colorSaturation, colorSaturation);
-RgbColor red(colorSaturation, 0, 0);
-RgbColor black(0);
+byte red = 0xFF;
+byte green = 0xFF;
+byte blue = 0xFF;
+// bool colorInit = 0;
+
+RgbColor COLOR_WHITE(colorSaturation, colorSaturation, colorSaturation);
+RgbColor COLOR_RED(colorSaturation, 0, 0);
+RgbColor COLOR_BLACK(0);
+// RgbColor Phone((uint8_t)red, (uint8_t)green, (uint8_t)blue);
 
 hw_timer_t * timer = NULL;
 const int LED = GPIO_NUM_2; // on board blue led. (pin24)
@@ -217,36 +223,55 @@ void blink_1()
 }
 */
 
-int ledState(byte state)
-{
-  if(state == LED_ON)
-    {
-      printf("LED ON\n");
-      strip.SetPixelColor(0, white);
-      strip.SetPixelColor(1, white);
-      strip.SetPixelColor(2, white);
-      strip.SetPixelColor(3, white);
-      strip.SetPixelColor(4, white);
-      strip.Show();
-    }
-    
-    else
-    {
-      // turn off the pixels
-      printf("LED OFF\n");
-      strip.SetPixelColor(0, black);
-      strip.SetPixelColor(1, black);
-      strip.SetPixelColor(2, black);
-      strip.SetPixelColor(3, black);
-      strip.SetPixelColor(4, black);
-      strip.Show();
-    }
+int ledColor()
+{ 
+  printf("red: %02x, green: %02x, blue: %02x\n", red, green, blue);
+  RgbColor Phone((uint8_t)red, (uint8_t)green, (uint8_t)blue);
+  strip.SetPixelColor(0, Phone);
+  strip.SetPixelColor(1, Phone);
+  strip.SetPixelColor(2, Phone);
+  strip.SetPixelColor(3, Phone);
+  strip.SetPixelColor(4, Phone);
+  strip.Show();
+
   return 0;
 }
 
-int ledColor(byte red, byte green, byte blue)
-{ 
-  printf("red: %02x, green: %02x, blue: %02x\n", red, green, blue);
+int ledState(byte state)
+{
+  if (state != LED_ON)
+  {
+    red = 0;
+    green = 0;
+    blue = 0;
+  }
+
+  ledColor();
+
+  // if(state == LED_ON)
+  // {
+  //   colorInit = 1;
+  //   printf("LED ON\n");
+  //   strip.SetPixelColor(0, COLOR_WHITE);
+  //   strip.SetPixelColor(1, COLOR_WHITE);
+  //   strip.SetPixelColor(2, COLOR_WHITE);
+  //   strip.SetPixelColor(3, COLOR_WHITE);
+  //   strip.SetPixelColor(4, COLOR_WHITE);
+  //   strip.Show();     
+  // }
+    
+  // else
+  // {
+  //   // turn off the pixels
+  //   printf("LED OFF\n");
+  //   strip.SetPixelColor(0, COLOR_BLACK);
+  //   strip.SetPixelColor(1, COLOR_BLACK);
+  //   strip.SetPixelColor(2, COLOR_BLACK);
+  //   strip.SetPixelColor(3, COLOR_BLACK);
+  //   strip.SetPixelColor(4, COLOR_BLACK);
+  //   strip.Show();
+  // }
+
   return 0;
 }
 
@@ -304,10 +329,10 @@ void readCommand()
     } 
     case LED_COLOR:
     {
-      byte red = receivedCommand[2];
-      byte green = receivedCommand[3];
-      byte blue = receivedCommand[4];
-      ledColor(red, green, blue);
+      red = receivedCommand[2];
+      green = receivedCommand[3];
+      blue = receivedCommand[4];
+      ledColor();
       break;
     }
 
