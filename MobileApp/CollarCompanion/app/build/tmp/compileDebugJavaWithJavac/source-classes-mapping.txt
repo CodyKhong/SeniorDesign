@@ -1,0 +1,4 @@
+com/example/collarcompanion/BuildConfig.java
+ com.example.collarcompanion.BuildConfig
+com/example/collarcompanion/MainActivity.java
+ com.example.collarcompanion.MainActivity

@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\menu\\bottom_nav_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_home_black_24dp.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\drawable\\ic_home_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_2.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_2.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_user_info.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_user_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_btactivity.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_btactivity.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_notifications.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_about_us.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_about_us.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_admin_dashboard.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_admin_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\drawable\\ic_notifications_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_dog_info.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_dog_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_add_apet.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_add_apet.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_notifications.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_connect.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_connect.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\drawable\\ic_dashboard_black_24dp.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\layout_fragment_dashboard.xml.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    }
+]

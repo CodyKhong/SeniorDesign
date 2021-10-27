@@ -1,0 +1,100 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<!--
+3Copyright (C) 2013 The Android Open Source Project
+4
+5Licensed under the Apache License, Version 2.0 (the "License");
+6you may not use this file except in compliance with the License.
+7You may obtain a copy of the License at
+8
+9http://www.apache.org/licenses/LICENSE-2.0
+10
+11Unless required by applicable law or agreed to in writing, software
+12distributed under the License is distributed on an "AS IS" BASIS,
+13WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+14See the License for the specific language governing permissions and
+15limitations under the License.
+16-->
+17<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+18    package="com.polkapolka.bluetooth.le"
+19    android:versionCode="1"
+20    android:versionName="1.0" >
+21
+22    <uses-sdk
+22-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:21:5-22:46
+23        android:minSdkVersion="18"
+23-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:21:15-41
+24        android:targetSdkVersion="30" />
+24-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:22:15-44
+25
+26    <!--
+27    Declare this required feature if you want to make the app available to BLE-capable
+28    devices only.  If you want to make your app available to devices that don't support BLE,
+29    you should omit this in the manifest.  Instead, determine BLE capability by using
+30    PackageManager.hasSystemFeature(FEATURE_BLUETOOTH_LE)
+31    -->
+32    <uses-feature
+32-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:28:5-89
+33        android:name="android.hardware.bluetooth_le"
+33-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:28:19-63
+34        android:required="true" />
+34-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:28:64-87
+35
+36    <uses-permission android:name="android.permission.BLUETOOTH" />
+36-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:32:5-67
+36-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:32:22-65
+37    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+37-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:33:5-73
+37-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:33:22-71
+38    <!-- Required only if your app isn't using the Device Companion Manager. -->
+39    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+39-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:35:5-79
+39-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:35:22-76
+40    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+40-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:36:5-81
+40-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:36:22-78
+41    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+41-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:37:5-85
+41-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:37:22-82
+42
+43    <application
+43-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:39:5-51:19
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.3.1] C:\Users\codeth\.gradle\caches\transforms-2\files-2.1\ff37b710ecf84191a2687617c776753e\core-1.3.1\AndroidManifest.xml:24:18-86
+45        android:debuggable="true"
+46        android:icon="@drawable/ic_launcher"
+46-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:40:18-54
+47        android:label="@string/app_name"
+47-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:39:18-50
+48        android:testOnly="true"
+49        android:theme="@android:style/Theme.Holo.Light" >
+49-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:41:18-65
+50        <activity
+50-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:42:9-48:20
+51            android:name="com.polkapolka.bluetooth.le.DeviceScanActivity"
+51-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:42:19-53
+52            android:label="@string/app_name" >
+52-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:43:19-51
+53            <intent-filter>
+53-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:44:13-47:29
+54                <action android:name="android.intent.action.MAIN" />
+54-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:45:17-68
+54-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:45:25-66
+55
+56                <category android:name="android.intent.category.LAUNCHER" />
+56-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:46:17-76
+56-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:46:27-74
+57            </intent-filter>
+58        </activity>
+59        <activity android:name="com.polkapolka.bluetooth.le.DeviceControlActivity" />
+59-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:49:9-58
+59-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:49:19-56
+60
+61        <service
+61-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:50:9-77
+62            android:name="com.polkapolka.bluetooth.le.BluetoothLeService"
+62-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:50:18-52
+63            android:enabled="true" />
+63-->C:\Users\codeth\AndroidStudioProjects\Android_ESP32BLE\app\src\main\AndroidManifest.xml:50:53-75
+64    </application>
+65
+66</manifest>

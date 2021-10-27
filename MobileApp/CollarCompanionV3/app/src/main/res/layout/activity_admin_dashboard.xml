@@ -13,11 +13,18 @@
         android:layout_height="284dp"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.223" />
+=======
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225" />
+>>>>>>> Stashed changes
 
     <TextView
         android:id="@+id/textView10"
@@ -26,10 +33,17 @@
         android:text="Led HEX Value"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.075" />
+=======
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/connectButton"
@@ -38,10 +52,17 @@
         android:text="Connect"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.626" />
+=======
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/disconnectButton"
@@ -53,7 +74,11 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintVertical_bias="0.626" />
+=======
+        app:layout_constraintVertical_bias="0.581" />
+>>>>>>> Stashed changes
 
     <Button
         android:id="@+id/switchButton"
@@ -62,6 +87,7 @@
         android:text="LED Switch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+<<<<<<< Updated upstream
         app:layout_constraintHorizontal_bias="0.986"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -78,5 +104,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.756" />
+=======
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.683" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="110dp"
+        android:layout_height="47dp"
+        android:text="LED"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581" />
+
+    <Button
+        android:id="@+id/TempReqbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TEMP_REQ"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784" />
+>>>>>>> Stashed changes
 
 </androidx.constraintlayout.widget.ConstraintLayout>

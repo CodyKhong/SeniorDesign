@@ -1,0 +1,142 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.collarcompanionv3"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="28"
+8-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml
+10    <!-- <uses-permission android:name="android.permission.BLUETOOTH" /> -->
+11    <!-- <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> -->
+12    <!-- <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" /> -->
+13    <!-- <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" /> -->
+14    <!-- <uses-permission android:name="android.permission.BLUETOOTH_SCAN" /> -->
+15    <uses-permission android:name="android.permission.BLUETOOTH" />
+15-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:9:5-68
+15-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:9:22-65
+16    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+16-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:10:5-74
+16-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:10:22-71
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:11:5-81
+17-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:11:22-78
+18    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+18-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:12:5-79
+18-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:12:22-76
+19    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+19-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:13:5-76
+19-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:13:22-73
+20    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+20-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:15:5-73
+20-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:15:22-70
+21
+22    <application
+22-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:17:5-67:19
+23        android:allowBackup="true"
+23-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:18:9-35
+24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+24-->[androidx.core:core:1.5.0] C:\Users\codeth\.gradle\caches\transforms-3\255d63c0f9f8f5d12ab3191ffb377750\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+25        android:debuggable="true"
+26        android:extractNativeLibs="false"
+27        android:icon="@mipmap/ic_launcher"
+27-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:19:9-43
+28        android:label="@string/app_name"
+28-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:20:9-41
+29        android:roundIcon="@mipmap/ic_launcher_round"
+29-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:21:9-54
+30        android:supportsRtl="true"
+30-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:22:9-35
+31        android:testOnly="true"
+32        android:theme="@style/Theme.CollarCompanionV3" >
+32-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:23:9-55
+33        <activity
+33-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:24:9-26:40
+34            android:name="com.example.collarcompanionv3.BTActivity"
+34-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:25:13-39
+35            android:exported="false" />
+35-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:26:13-37
+36        <activity
+36-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:27:9-29:40
+37            android:name="com.example.collarcompanionv3.openBTActivity"
+37-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:28:13-43
+38            android:exported="false" />
+38-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:29:13-37
+39        <activity
+39-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:30:9-32:39
+40            android:name="com.example.collarcompanionv3.BluetoothTest"
+40-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:31:13-42
+41            android:exported="true" />
+41-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:32:13-36
+42        <activity
+42-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:33:9-35:39
+43            android:name="com.example.collarcompanionv3.AdminDashboard"
+43-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:34:13-43
+44            android:exported="true" />
+44-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:35:13-36
+45        <activity
+45-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:36:9-38:39
+46            android:name="com.example.collarcompanionv3.ConnectActivity"
+46-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:37:13-44
+47            android:exported="true" />
+47-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:38:13-36
+48        <activity
+48-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:39:9-41:39
+49            android:name="com.example.collarcompanionv3.UserInfoActivity"
+49-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:40:13-45
+50            android:exported="true" />
+50-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:41:13-36
+51        <activity
+51-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:42:9-44:39
+52            android:name="com.example.collarcompanionv3.DogInfoActivity"
+52-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:43:13-44
+53            android:exported="true" />
+53-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:44:13-36
+54        <activity
+54-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:45:9-47:39
+55            android:name="com.example.collarcompanionv3.AddAPetActivity"
+55-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:46:13-44
+56            android:exported="true" />
+56-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:47:13-36
+57        <activity
+57-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:48:9-50:39
+58            android:name="com.example.collarcompanionv3.NotificationsActivity"
+58-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:49:13-50
+59            android:exported="true" />
+59-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:50:13-36
+60        <activity
+60-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:51:9-53:39
+61            android:name="com.example.collarcompanionv3.AboutUsActivity"
+61-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:52:13-44
+62            android:exported="true" />
+62-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:53:13-36
+63        <activity
+63-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:54:9-57:56
+64            android:name="com.example.collarcompanionv3.Activity2"
+64-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:55:13-38
+65            android:exported="true"
+65-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:56:13-36
+66            android:label="@string/title_activity_2" />
+66-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:57:13-53
+67        <activity
+67-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:58:9-66:20
+68            android:name="com.example.collarcompanionv3.MainActivity"
+68-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:59:13-41
+69            android:exported="true" >
+69-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:60:13-36
+70            <intent-filter>
+70-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:61:13-65:29
+71                <action android:name="android.intent.action.MAIN" />
+71-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:62:17-69
+71-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:62:25-66
+72
+73                <category android:name="android.intent.category.LAUNCHER" />
+73-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:64:17-77
+73-->C:\Users\codeth\AndroidStudioProjects\CollarCompanionV3\app\src\main\AndroidManifest.xml:64:27-74
+74            </intent-filter>
+75        </activity>
+76    </application>
+77
+78</manifest>

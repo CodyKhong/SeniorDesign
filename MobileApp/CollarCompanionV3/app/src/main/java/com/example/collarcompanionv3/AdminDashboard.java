@@ -98,7 +98,11 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
                                 btnTEXT.setTextColor(color);
                                 String hexColor = Integer.toHexString(color).substring(2);
                                 btnTEXT.setText(hexColor);
+<<<<<<< Updated upstream
                                 remoteControl.DATASEND(color);
+=======
+                                remoteControl.LEDSend(color);
+>>>>>>> Stashed changes
                                 byte RedByte = (byte)((color>>16) & 0xFF);
                                 String R = String.format("%8s", Integer.toBinaryString(RedByte & 0xFF)).replace(' ', '0');
                                 byte GreenByte = (byte)((color>>8) & 0xFF);
@@ -123,6 +127,18 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
 
             }
         });
+<<<<<<< Updated upstream
+=======
+
+        Button TempReqLED = (Button) findViewById(R.id.TempReqbutton);
+        TempReqLED.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                remoteControl.TempRequest();
+            }
+        });
+
+>>>>>>> Stashed changes
     }
     private void initConnectButton() {
         this.connectButton = findViewById(R.id.connectButton);
@@ -160,6 +176,12 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
         });
     }
 
+<<<<<<< Updated upstream
+=======
+//    private void initGetTempButton(){
+//        this.remoteControl.DATAREAD();
+//    }
+>>>>>>> Stashed changes
 //    private void initSendButton() {
 //        this.sendButton = findViewById(R.id.button8);
 //        this.sendButton.setOnClickListener(new View.OnClickListener() {
@@ -230,7 +252,11 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
         this.bleController.addBLEControllerListener(this);
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
+<<<<<<< Updated upstream
             log("[BLE]\tSearching for BLE DEVICe...");
+=======
+            log("[BLE]\tSearching for this_is_the_fucking_BLE...");
+>>>>>>> Stashed changes
             this.bleController.init();
         }
     }

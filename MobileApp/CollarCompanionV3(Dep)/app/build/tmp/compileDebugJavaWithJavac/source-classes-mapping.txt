@@ -1,0 +1,82 @@
+com/example/collarcompanionv3/DogInfoActivity.java
+ com.example.collarcompanionv3.DogInfoActivity
+com/example/collarcompanionv3/BLEController.java
+ com.example.collarcompanionv3.BLEController
+ com.example.collarcompanionv3.BLEController$1
+ com.example.collarcompanionv3.BLEController$2
+com/example/collarcompanionv3/BLEControllerListener.java
+ com.example.collarcompanionv3.BLEControllerListener
+com/example/collarcompanionv3/ui/home/HomeFragment.java
+ com.example.collarcompanionv3.ui.home.HomeFragment
+ com.example.collarcompanionv3.ui.home.HomeFragment$1
+com/example/collarcompanionv3/databinding/ActivityUserInfoBinding.java
+ com.example.collarcompanionv3.databinding.ActivityUserInfoBinding
+com/example/collarcompanionv3/databinding/ActivityAddApetBinding.java
+ com.example.collarcompanionv3.databinding.ActivityAddApetBinding
+com/example/collarcompanionv3/AboutUsActivity.java
+ com.example.collarcompanionv3.AboutUsActivity
+com/example/collarcompanionv3/AddAPetActivity.java
+ com.example.collarcompanionv3.AddAPetActivity
+com/example/collarcompanionv3/databinding/FragmentHomeBinding.java
+ com.example.collarcompanionv3.databinding.FragmentHomeBinding
+com/example/collarcompanionv3/ui/dashboard/DashboardFragment.java
+ com.example.collarcompanionv3.ui.dashboard.DashboardFragment
+ com.example.collarcompanionv3.ui.dashboard.DashboardFragment$1
+com/example/collarcompanionv3/ui/notifications/NotificationsViewModel.java
+ com.example.collarcompanionv3.ui.notifications.NotificationsViewModel
+com/example/collarcompanionv3/databinding/ActivityMainBinding.java
+ com.example.collarcompanionv3.databinding.ActivityMainBinding
+com/example/collarcompanionv3/databinding/FragmentNotificationsBinding.java
+ com.example.collarcompanionv3.databinding.FragmentNotificationsBinding
+com/example/collarcompanionv3/BuildConfig.java
+ com.example.collarcompanionv3.BuildConfig
+com/example/collarcompanionv3/NotificationsActivity.java
+ com.example.collarcompanionv3.NotificationsActivity
+com/example/collarcompanionv3/UserInfoActivity.java
+ com.example.collarcompanionv3.UserInfoActivity
+com/example/collarcompanionv3/BTActivity.java
+ com.example.collarcompanionv3.BTActivity
+com/example/collarcompanionv3/MainActivity.java
+ com.example.collarcompanionv3.MainActivity
+ com.example.collarcompanionv3.MainActivity$1
+com/example/collarcompanionv3/databinding/ActivityAboutUsBinding.java
+ com.example.collarcompanionv3.databinding.ActivityAboutUsBinding
+com/example/collarcompanionv3/databinding/ActivityNotificationsBinding.java
+ com.example.collarcompanionv3.databinding.ActivityNotificationsBinding
+com/example/collarcompanionv3/databinding/FragmentDashboardBinding.java
+ com.example.collarcompanionv3.databinding.FragmentDashboardBinding
+com/example/collarcompanionv3/databinding/ActivityDogInfoBinding.java
+ com.example.collarcompanionv3.databinding.ActivityDogInfoBinding
+com/example/collarcompanionv3/Activity2.java
+ com.example.collarcompanionv3.Activity2
+com/example/collarcompanionv3/ui/dashboard/DashboardViewModel.java
+ com.example.collarcompanionv3.ui.dashboard.DashboardViewModel
+com/example/collarcompanionv3/databinding/ActivityBtactivityBinding.java
+ com.example.collarcompanionv3.databinding.ActivityBtactivityBinding
+com/example/collarcompanionv3/ui/home/HomeViewModel.java
+ com.example.collarcompanionv3.ui.home.HomeViewModel
+com/example/collarcompanionv3/databinding/Activity2Binding.java
+ com.example.collarcompanionv3.databinding.Activity2Binding
+com/example/collarcompanionv3/databinding/ActivityAdminDashboardBinding.java
+ com.example.collarcompanionv3.databinding.ActivityAdminDashboardBinding
+com/example/collarcompanionv3/databinding/ActivityConnectBinding.java
+ com.example.collarcompanionv3.databinding.ActivityConnectBinding
+com/example/collarcompanionv3/ConnectActivity.java
+ com.example.collarcompanionv3.ConnectActivity
+com/example/collarcompanionv3/AdminDashboard.java
+ com.example.collarcompanionv3.AdminDashboard
+ com.example.collarcompanionv3.AdminDashboard$1
+ com.example.collarcompanionv3.AdminDashboard$1$1
+ com.example.collarcompanionv3.AdminDashboard$2
+ com.example.collarcompanionv3.AdminDashboard$3
+ com.example.collarcompanionv3.AdminDashboard$4
+ com.example.collarcompanionv3.AdminDashboard$5
+ com.example.collarcompanionv3.AdminDashboard$6
+ com.example.collarcompanionv3.AdminDashboard$7
+ com.example.collarcompanionv3.AdminDashboard$8
+com/example/collarcompanionv3/ui/notifications/NotificationsFragment.java
+ com.example.collarcompanionv3.ui.notifications.NotificationsFragment
+ com.example.collarcompanionv3.ui.notifications.NotificationsFragment$1
+ com.example.collarcompanionv3.ui.notifications.NotificationsFragment$2
+com/example/collarcompanionv3/RemoteControl.java
+ com.example.collarcompanionv3.RemoteControl

@@ -1,0 +1,27 @@
+com/example/collarcompanionv2/ui/dashboard/DashboardViewModel.java
+ com.example.collarcompanionv2.ui.dashboard.DashboardViewModel
+com/example/collarcompanionv2/ui/home/HomeFragment.java
+ com.example.collarcompanionv2.ui.home.HomeFragment
+ com.example.collarcompanionv2.ui.home.HomeFragment$1
+com/example/collarcompanionv2/ui/home/HomeViewModel.java
+ com.example.collarcompanionv2.ui.home.HomeViewModel
+com/example/collarcompanionv2/ui/notifications/NotificationsViewModel.java
+ com.example.collarcompanionv2.ui.notifications.NotificationsViewModel
+com/example/collarcompanionv2/BuildConfig.java
+ com.example.collarcompanionv2.BuildConfig
+com/example/collarcompanionv2/ui/dashboard/DashboardFragment.java
+ com.example.collarcompanionv2.ui.dashboard.DashboardFragment
+ com.example.collarcompanionv2.ui.dashboard.DashboardFragment$1
+com/example/collarcompanionv2/MainActivity.java
+ com.example.collarcompanionv2.MainActivity
+com/example/collarcompanionv2/databinding/FragmentHomeBinding.java
+ com.example.collarcompanionv2.databinding.FragmentHomeBinding
+com/example/collarcompanionv2/databinding/ActivityMainBinding.java
+ com.example.collarcompanionv2.databinding.ActivityMainBinding
+com/example/collarcompanionv2/databinding/FragmentDashboardBinding.java
+ com.example.collarcompanionv2.databinding.FragmentDashboardBinding
+com/example/collarcompanionv2/databinding/FragmentNotificationsBinding.java
+ com.example.collarcompanionv2.databinding.FragmentNotificationsBinding
+com/example/collarcompanionv2/ui/notifications/NotificationsFragment.java
+ com.example.collarcompanionv2.ui.notifications.NotificationsFragment
+ com.example.collarcompanionv2.ui.notifications.NotificationsFragment$1
