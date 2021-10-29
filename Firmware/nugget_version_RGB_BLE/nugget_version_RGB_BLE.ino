@@ -105,7 +105,7 @@ void setup() {
   strip.Begin();
   strip.Show();
   // Create the BLE Device
-  BLEDevice::init("this_is_the_fucking_BLE"); // Give it a name
+  BLEDevice::init("Collar_Companion"); // Give it a name
 
   // Create the BLE Server
   BLEServer *pServer = BLEDevice::createServer();
