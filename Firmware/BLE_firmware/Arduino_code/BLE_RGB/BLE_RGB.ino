@@ -32,12 +32,12 @@ const uint8_t PixelPin = 18;  // make sure to set this to the correct pin, ignor
 // three element pixels, in different order and speeds
 NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
 
-byte red = 0xFF;
-byte green = 0xFF;
-byte blue = 0xFF;
-byte lastR = 0xFF;
-byte lastG = 0xFF;
-byte lastB = 0xFF;
+static byte red = 0xFF;
+static byte green = 0xFF;
+static byte blue = 0xFF;
+static byte lastR = 0xFF;
+static byte lastG = 0xFF;
+static byte lastB = 0xFF;
 // bool colorInit = 0;
 
 RgbColor COLOR_WHITE(colorSaturation, colorSaturation, colorSaturation);
