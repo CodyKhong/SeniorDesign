@@ -35,6 +35,9 @@ NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
 byte red = 0xFF;
 byte green = 0xFF;
 byte blue = 0xFF;
+byte lastR = 0xFF;
+byte lastG = 0xFF;
+byte lastB = 0xFF;
 // bool colorInit = 0;
 
 RgbColor COLOR_WHITE(colorSaturation, colorSaturation, colorSaturation);
@@ -239,10 +242,22 @@ int ledColor()
 
 int ledState(byte state)
 {
-  if (state != LED_ON)
+  if (state == LED_ON)
   {
+    red = lastR;
+    green = lastG;
+    blue = lastB;
+  }
+
+  else
+  {
+    lastR = red;
     red = 0;
+
+    lastG = green;
     green = 0;
+
+    lastB = blue;
     blue = 0;
   }
 
