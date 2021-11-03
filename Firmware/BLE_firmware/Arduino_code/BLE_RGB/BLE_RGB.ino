@@ -252,12 +252,15 @@ int ledState(byte state)
   else
   {
     lastR = red;
+    delay(1);
     red = 0;
 
     lastG = green;
+    delay(1);
     green = 0;
 
     lastB = blue;
+    delay(1);
     blue = 0;
   }
 
