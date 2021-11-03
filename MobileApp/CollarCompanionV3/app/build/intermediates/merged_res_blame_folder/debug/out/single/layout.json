@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_admin_dashboard.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_admin_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_home.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_user_info.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_user_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_add_apet.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_add_apet.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_about_us.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_about_us.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_notifications.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\fragment_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_main.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_notifications.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_notifications.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_dog_info.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_dog_info.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_connect.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_connect.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\activity_2.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\activity_2.xml"
+    },
+    {
+        "merged": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_dashboard.xml",
+        "source": "C:\\Users\\codeth\\AndroidStudioProjects\\CollarCompanionV3\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
+    }
+]
