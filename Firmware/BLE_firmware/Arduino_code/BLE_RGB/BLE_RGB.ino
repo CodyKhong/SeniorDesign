@@ -7,8 +7,8 @@
 #include <NeoPixelBus.h>
 
 #define SERVICE_UUID           "0000ffe0-0000-1000-8000-00805f9b34fb" // UART service UUID
-#define CHARACTERISTIC_UUID_RX "0000ffe1-0000-1000-8000-00805f9b34fb"
-#define CHARACTERISTIC_UUID_TX "0000ffe2-0000-1000-8000-00805f9b34fb"
+#define CHARACTERISTIC_UUID    "0000ffe1-0000-1000-8000-00805f9b34fb"
+//#define CHARACTERISTIC_UUID_TX "0000ffe2-0000-1000-8000-00805f9b34fb"
 #define colorSaturation 255
 #define MAX_DATA_SIZE 128   // Max transmit data size in bit
 
@@ -32,18 +32,9 @@ const uint8_t PixelPin = 18;  // make sure to set this to the correct pin, ignor
 // three element pixels, in different order and speeds
 NeoPixelBus<NeoGrbFeature, Neo800KbpsMethod> strip(PixelCount, PixelPin);
 
-static byte red = 0xFF;
-static byte green = 0xFF;
-static byte blue = 0xFF;
-static byte lastR = 0xFF;
-static byte lastG = 0xFF;
-static byte lastB = 0xFF;
-// bool colorInit = 0;
-
 RgbColor COLOR_WHITE(colorSaturation, colorSaturation, colorSaturation);
 RgbColor COLOR_RED(colorSaturation, 0, 0);
 RgbColor COLOR_BLACK(0);
-// RgbColor Phone((uint8_t)red, (uint8_t)green, (uint8_t)blue);
 
 hw_timer_t * timer = NULL;
 const int LED = GPIO_NUM_2; // on board blue led. (pin24)
@@ -104,6 +95,8 @@ class MyCallbacks: public BLECharacteristicCallbacks
 //        receivedCommand = rxValue.c_str();
 //        printf("%x", receivedCommand);
       rxValue = "";
+      readCommand(pCharacteristic);
+      commandLength = 0;
     }
   }
 };
@@ -114,7 +107,7 @@ void setup() {
   strip.Begin();
   strip.Show();
   // Create the BLE Device
-  BLEDevice::init("Collar_Companion"); // Give it a name
+  BLEDevice::init("this_is_the_fucking_BLE"); // Give it a name
 
   // Create the BLE Server
   BLEServer *pServer = BLEDevice::createServer();
@@ -130,7 +123,8 @@ void setup() {
                     );
     pCharacteristic->addDescriptor(new BLE2902());*/
   BLECharacteristic *pCharacteristic = pService->createCharacteristic(
-                                         CHARACTERISTIC_UUID_RX,
+                                         CHARACTERISTIC_UUID,
+                                         BLECharacteristic::PROPERTY_READ |
                                          BLECharacteristic::PROPERTY_WRITE
                                        );
   pCharacteristic->setCallbacks(new MyCallbacks());
@@ -159,17 +153,17 @@ void setup() {
 
 }
 
-// void setup()
-// {
+//void setup()
+//{
 //   bleInit();
-// }
+//}
 
 /*
 void apply_color(unsigned char R, unsigned char G, unsigned char B)
 {
   if (R >= 0 && R <= 255)  ledcWrite(1, R);
   else ledcWrite(1, 255);
-
+  
   if (G >= 0 && G <= 255) ledcWrite(2, G);
   else ledcWrite(2, 255);
 
@@ -178,9 +172,9 @@ void apply_color(unsigned char R, unsigned char G, unsigned char B)
 
   Serial.println("LED's color changed!");
 
- Serial.print(R);
- Serial.print(G);
- Serial.print(B);
+  Serial.print(R);
+  Serial.print(G);
+  Serial.print(B);
 }
 
 void change_color(String cmd) 
@@ -196,19 +190,17 @@ void change_color(String cmd)
 //     apply_color(R, G, B);
     
     //version 6 convert decimal to char
-     char  *char_cmd = &cmd[0]; // assign char dau tien cua string vao con tro char
+    char  *char_cmd = &cmd[0]; // assign char dau tien cua string vao con tro char
   
   if (char_cmd[0] == '#')
   {
-     int R = (int) char_cmd[1] *255/100;
-     int G = (int) char_cmd[2] *255/100;
-     int B = (int) char_cmd[3]  *255/100;
-
+    int R = (int) char_cmd[1] *255/100;
+    int G = (int) char_cmd[2] *255/100;
+    int B = (int) char_cmd[3]  *255/100;
     apply_color(R, G, B);
   }
   else
     Serial.println("Invalid command!");
-
   }
 }
 
@@ -226,7 +218,34 @@ void blink_1()
 }
 */
 
-int ledColor()
+int ledState(byte state)
+{
+  if(state == LED_ON)
+    {
+      printf("LED ON\n");
+      strip.SetPixelColor(0, COLOR_WHITE);
+      strip.SetPixelColor(1, COLOR_WHITE);
+      strip.SetPixelColor(2, COLOR_WHITE);
+      strip.SetPixelColor(3, COLOR_WHITE);
+      strip.SetPixelColor(4, COLOR_WHITE);
+      strip.Show();
+    }
+    
+    else
+    {
+      // turn off the pixels
+      printf("LED OFF\n");
+      strip.SetPixelColor(0, COLOR_BLACK);
+      strip.SetPixelColor(1, COLOR_BLACK);
+      strip.SetPixelColor(2, COLOR_BLACK);
+      strip.SetPixelColor(3, COLOR_BLACK);
+      strip.SetPixelColor(4, COLOR_BLACK);
+      strip.Show();
+    }
+  return 0;
+}
+
+int ledColor(byte red, byte green, byte blue)
 { 
   printf("red: %02x, green: %02x, blue: %02x\n", red, green, blue);
   RgbColor color((uint8_t)red, (uint8_t)green, (uint8_t)blue);
@@ -236,103 +255,50 @@ int ledColor()
   strip.SetPixelColor(3, color);
   strip.SetPixelColor(4, color);
   strip.Show();
-
-  return 0;
-}
-
-int ledState(byte state)
-{
-  if (state == LED_ON)
-  {
-    red = lastR;
-    green = lastG;
-    blue = lastB;
-  }
-
-  else
-  {
-    lastR = red;
-    delay(1);
-    red = 0;
-
-    lastG = green;
-    delay(1);
-    green = 0;
-
-    lastB = blue;
-    delay(1);
-    blue = 0;
-  }
-
-  ledColor();
-
-  // if(state == LED_ON)
-  // {
-  //   colorInit = 1;
-  //   printf("LED ON\n");
-  //   strip.SetPixelColor(0, COLOR_WHITE);
-  //   strip.SetPixelColor(1, COLOR_WHITE);
-  //   strip.SetPixelColor(2, COLOR_WHITE);
-  //   strip.SetPixelColor(3, COLOR_WHITE);
-  //   strip.SetPixelColor(4, COLOR_WHITE);
-  //   strip.Show();     
-  // }
-    
-  // else
-  // {
-  //   // turn off the pixels
-  //   printf("LED OFF\n");
-  //   strip.SetPixelColor(0, COLOR_BLACK);
-  //   strip.SetPixelColor(1, COLOR_BLACK);
-  //   strip.SetPixelColor(2, COLOR_BLACK);
-  //   strip.SetPixelColor(3, COLOR_BLACK);
-  //   strip.SetPixelColor(4, COLOR_BLACK);
-  //   strip.Show();
-  // }
-
-  return 0;
-}
-
-// String createCMD(byte dataType, byte dataSize, byte *cmdData)
-// {
-//   uint8_t cmd[dataSize + 2];
-//   cmd[0] = dataType;
-//   cmd[1] = dataSize;
-//   for(int i = 0; i < dataSize; i++)
-//   {
-//     cmd[i + 2] = cmdData[i];
-//   }
-//   cmd[dataSize + 1] = '\0';
-
-//   return cmd;
-// }
-
-// // Receive data, send data through BLE, return 0 if data transmit success
-// int sendData(String cmd)
-// {
-//   pCharacteristic->setValue(cmd);
   
-//   return 0;
-// }
+  return 0;
+}
 
-// int sendTemp()
-// {
-//   byte *data = {0x55};
-//   printf("Received temp request.\n");
-//   sendData(createCMD(TEMP_DATA, 1, data));
-//   printf("Temp data sent.\n");
+uint16_t *createCMD(byte dataType, int dataSize, uint16_t *cmdData)
+{
+  uint16_t cmd[dataSize + 3];
+  cmd[0] = dataType;
+  cmd[1] = dataSize;
+  for(int i = 0; i < dataSize; i++)
+  {
+    cmd[i + 2] = cmdData[i];
+  }
+  cmd[dataSize + 3] = '\0';
 
-//   return 0;
-// }
+  return cmd;
+}
 
-// int sendAcc()
-// {
-//   printf("Received accelerometer request.\n");
+// Receive data, send data through BLE, return 0 if data transmit success
+int sendData(BLECharacteristic *pCharacteristic, uint16_t *cmd)
+{
+ pCharacteristic->setValue(*cmd);
  
-//   return 0;
-// }
+ return 0;
+}
 
-void readCommand()
+int sendTemp(BLECharacteristic *pCharacteristic)
+{
+  uint16_t data[MAX_DATA_SIZE] = {0x55};
+  printf("Received temp request.\n");
+  sendData(pCharacteristic, createCMD(TEMP_DATA, 1, data));
+  printf("Temp data sent.\n");
+
+  return 0;
+}
+
+int sendAcc()
+{
+  printf("Received accelerometer request.\n");
+ 
+  return 0;
+}
+
+void readCommand(BLECharacteristic *pCharacteristic)
 {
   byte cmdType = receivedCommand[0];
   byte cmdSize = receivedCommand[1];
@@ -347,24 +313,24 @@ void readCommand()
     } 
     case LED_COLOR:
     {
-      red = receivedCommand[2];
-      green = receivedCommand[3];
-      blue = receivedCommand[4];
-      ledColor();
+      byte red = receivedCommand[2];
+      byte green = receivedCommand[3];
+      byte blue = receivedCommand[4];
+      ledColor(red, green, blue);
       break;
     }
 
-    // case TEMP_REQ:
-    // {
-    //   sendTemp();
-    //   break;
-    // }
+   case TEMP_REQ:
+   {
+     sendTemp(pCharacteristic);
+     break;
+   }
 
-    // case ACC_REQ:
-    // {
-    //   sendAcc();
-    //   break;
-    // }
+//    case ACC_REQ:
+//    {
+//      sendAcc();
+//      break;
+//    }
 
     default:
       break;      
@@ -372,26 +338,14 @@ void readCommand()
   
 }
 
-void loop() {
-  delay(10);
+void loop() 
+{
+  /*delay(10);
   if (commandLength > 0)
   {
     readCommand();
 
-  /*
-   static int cnt = 0;
-   cnt++;
-//    printf("%d\n", cnt);
-//    printf("%d\n", cnt%2);
-   delay(100);
-   printf("This is what I got: ", receivedCommand);
-   for(int i = 0; i < commandLength; i++) 
-   {
-     printf("%x", receivedCommand[i]);
-   }
-   printf("\n");
-   if(cnt%2 == 0)
-   {
+  
    strip.SetPixelColor(0, red);
    strip.SetPixelColor(1, red);
    strip.SetPixelColor(2, red);
@@ -415,33 +369,28 @@ void loop() {
     {
       blink_1();
     }
-
     else if (receivedCommand == "ONLED" || receivedCommand == "1")
     {
       digitalWrite(LED, HIGH);
     }
-
     else if (receivedCommand == "OFFLED" || receivedCommand == "0")
     {
       digitalWrite(LED, LOW);
     }
-
     else if (receivedCommand == "BLN")
     {
       timerAlarmEnable(timer);
     }
-
     else if (receivedCommand == "SBL")
     {
       timerAlarmDisable(timer);
     }
-
     else
     {
       change_color(receivedCommand);
     }
-*/
+
 
     commandLength = 0;
-  }
+  }*/
 }
