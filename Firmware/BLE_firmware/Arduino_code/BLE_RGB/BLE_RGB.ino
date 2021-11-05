@@ -263,21 +263,26 @@ uint16_t *createCMD(byte dataType, int dataSize, uint16_t *cmdData)
 {
   uint16_t cmd[dataSize + 3];
 
+  printf("test point in createCMD - 00\n");
   cmd[0] = dataType;
+  printf("test point in createCMD - 01\n");
   cmd[1] = dataSize;
   for(int i = 0; i < dataSize; i++)
   {
+    printf("test point in createCMD - i = %d\n", i);
     cmd[i + 2] = cmdData[i];
   }
+  printf("test point in createCMD - 10\n");
   cmd[dataSize + 3] = '\0';
-
+  printf("test point in createCMD - 11\n");
   return cmd;
 }
 
 // Receive data, send data through BLE, return 0 if data transmit success
 int sendData(BLECharacteristic *pCharacteristic, uint16_t *cmd)
 {
- pCharacteristic->setValue(*cmd);
+  printf("test point in sendData prior to message send.\n");
+  pCharacteristic->setValue(*cmd);
  
  return 0;
 }
