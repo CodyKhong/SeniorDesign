@@ -259,7 +259,7 @@ int ledColor(byte red, byte green, byte blue)
   return 0;
 }
 
-uint16_t *createCMD(byte dataType, int dataSize, uint16_t *cmdData)
+uint16_t *createCMD(uint16_t dataType, int dataSize, uint16_t *cmdData)
 {
   uint16_t cmd[dataSize + 3];
 
