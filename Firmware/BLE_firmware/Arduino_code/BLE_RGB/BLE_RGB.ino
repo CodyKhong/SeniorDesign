@@ -255,13 +255,14 @@ int ledColor(byte red, byte green, byte blue)
   strip.SetPixelColor(3, color);
   strip.SetPixelColor(4, color);
   strip.Show();
-  
+
   return 0;
 }
 
 uint16_t *createCMD(byte dataType, int dataSize, uint16_t *cmdData)
 {
   uint16_t cmd[dataSize + 3];
+
   cmd[0] = dataType;
   cmd[1] = dataSize;
   for(int i = 0; i < dataSize; i++)
@@ -291,7 +292,7 @@ int sendTemp(BLECharacteristic *pCharacteristic)
   return 0;
 }
 
-int sendAcc()
+int sendAcc(BLECharacteristic *pCharacteristic)
 {
   printf("Received accelerometer request.\n");
  
