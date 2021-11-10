@@ -21,15 +21,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CollarCompanionV3">
-        <activity
-            android:name=".BTActivity"
-            android:exported="false" />
-        <activity
-            android:name=".openBTActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BluetoothTest"
-            android:exported="true" />
+
         <activity
             android:name=".AdminDashboard"
             android:exported="true" />

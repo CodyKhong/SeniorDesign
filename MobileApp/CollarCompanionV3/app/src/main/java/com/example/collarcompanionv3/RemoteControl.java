@@ -6,15 +6,6 @@ public class RemoteControl {
     //    private final static byte START = 0x11;
     private final static byte LED_STATE = 0x1;
     private final static byte LED_COLOR = 0x2;
-<<<<<<< Updated upstream
-
-    private final static byte red = 0x11;
-    private final static byte green = 0x22;
-    private final static byte blue = 0x33;
-
-    private final static byte VALUE_OFF = 0x11;
-    private final static byte VALUE_ON = 0x10;
-=======
     private final static byte TEMP_REQ = 0x3;
     private final static byte TEMP_DATA = 0x4;
     private final static byte ACC_REQ = 0x5;
@@ -27,7 +18,6 @@ public class RemoteControl {
     private final static byte SPK_VALUE_OFF = 0x70;
     private final static byte SPK_VALUE_ON = 0x71;
 
->>>>>>> Stashed changes
 
     private BLEController bleController;
 
@@ -50,11 +40,7 @@ public class RemoteControl {
         this.bleController.sendData(createControlWord(LED_STATE, on?VALUE_ON:VALUE_OFF));
     }
 
-<<<<<<< Updated upstream
-    public void DATASEND(int RGB) {
-=======
     public void LEDSend(int RGB) {
->>>>>>> Stashed changes
 
         byte RedByte = (byte)((RGB>>16) & 0xFF);
         byte GreenByte = (byte)((RGB>>8) & 0xFF);
@@ -62,8 +48,6 @@ public class RemoteControl {
         this.bleController.sendData(createControlWord(LED_COLOR, RedByte,GreenByte,BlueByte));
     }
 
-<<<<<<< Updated upstream
-=======
     public void TempRequest(){
         this.bleController.sendData(createControlWord(TEMP_REQ));
     }
@@ -87,7 +71,6 @@ public class RemoteControl {
 //        byte cmdType = this.bleController.readData(TEMP_REQ);
 //    }
 
->>>>>>> Stashed changes
 //    public void heartbeat() {
 //        this.bleController.sendData(createControlWord(HEARTBEAT));
 //    }

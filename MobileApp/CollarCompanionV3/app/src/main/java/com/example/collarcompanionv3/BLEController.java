@@ -2,10 +2,7 @@ package com.example.collarcompanionv3;
 
 import static android.bluetooth.BluetoothProfile.GATT;
 
-<<<<<<< Updated upstream
-=======
 import android.bluetooth.BluetoothAdapter;
->>>>>>> Stashed changes
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
@@ -18,18 +15,12 @@ import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
 import android.content.Context;
 import android.util.Log;
-<<<<<<< Updated upstream
-=======
 import android.widget.TextView;
->>>>>>> Stashed changes
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-<<<<<<< Updated upstream
-=======
 import java.util.UUID;
->>>>>>> Stashed changes
 
 public class BLEController {
     private static BLEController instance;
@@ -38,22 +29,15 @@ public class BLEController {
     private BluetoothDevice device;
     private BluetoothGatt bluetoothGatt;
     private BluetoothManager bluetoothManager;
-<<<<<<< Updated upstream
-
-=======
     private BluetoothAdapter bluetoothAdapter;
     private final static String TAG = BLEController.class.getSimpleName();
->>>>>>> Stashed changes
     private BluetoothGattCharacteristic btGattChar = null;
 
     private ArrayList<BLEControllerListener> listeners = new ArrayList<>();
     private HashMap<String, BluetoothDevice> devices = new HashMap<>();
-<<<<<<< Updated upstream
-=======
 //
 //    BluetoothGattService mGattService = bluetoothGatt.getService(UUID.fromString("0000ffe0-0000-1000-8000-00805f9b34fb"));
 //    BluetoothGattCharacteristic mGattCharGetTemperature;
->>>>>>> Stashed changes
 
     private BLEController(Context ctx) {
         this.bluetoothManager = (BluetoothManager) ctx.getSystemService(Context.BLUETOOTH_SERVICE);
@@ -107,7 +91,7 @@ public class BLEController {
     };
 
     private boolean isThisTheDevice(BluetoothDevice device) {
-        return null != device.getName() && device.getName().startsWith("this_is_the_fucking_BLE");
+        return null != device.getName() && device.getName().startsWith("Collar_Companion");
     }
 
     private void deviceFound(BluetoothDevice device) {
@@ -123,22 +107,6 @@ public class BLEController {
     }
 
     private final BluetoothGattCallback bleConnectCallback = new BluetoothGattCallback() {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
-        @Override
-        public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
-            if (newState == BluetoothProfile.STATE_CONNECTED) {
-                Log.i("[BLE]", "start service discovery " + bluetoothGatt.discoverServices());
-            }else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
-                btGattChar = null;
-                Log.w("[BLE]", "DISCONNECTED with status " + status);
-                fireDisconnected();
-            }else {
-                Log.i("[BLE]", "unknown state " + newState + " and status " + status);
-            }
-        }
 
         @Override
         public void onServicesDiscovered(BluetoothGatt gatt, int status) {
@@ -153,17 +121,27 @@ public class BLEController {
                                     btGattChar = bgc;
                                     Log.i("[BLE]", "CONNECTED and ready to send");
                                     fireConnected();
-<<<<<<< Updated upstream
-=======
 //                                    mGattCharGetTemperature = mGattService.getCharacteristic(UUID.fromString("0000ffe1-0000-1000-8000-00805f9b34fb"));
 ////                                    mGattCharGetTemperature = gatt.getService(service.getUuid().toString().toUpperCase().startsWith("0000FFE0"))
 //                                    bluetoothGatt.readCharacteristic(mGattCharGetTemperature);
->>>>>>> Stashed changes
                                 }
                             }
                         }
                     }
                 }
+            }
+        }
+
+        @Override
+        public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
+            if (newState == BluetoothProfile.STATE_CONNECTED) {
+                Log.i("[BLE]", "start service discovery " + bluetoothGatt.discoverServices());
+            }else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+                btGattChar = null;
+                Log.w("[BLE]", "DISCONNECTED with status " + status);
+                fireDisconnected();
+            }else {
+                Log.i("[BLE]", "unknown state " + newState + " and status " + status);
             }
         }
     };
@@ -189,8 +167,6 @@ public class BLEController {
         this.btGattChar.setValue(data);
         bluetoothGatt.writeCharacteristic(this.btGattChar);
     }
-<<<<<<< Updated upstream
-=======
     public void readData(byte [] data){
         this.btGattChar.setValue(data);
 //        bluetoothGatt.readCharacteristic(this.btGattChar);
@@ -202,7 +178,6 @@ public class BLEController {
         bluetoothGatt.readCharacteristic(this.btGattChar);
 
     }
->>>>>>> Stashed changes
 
     public boolean checkConnectedState() {
         return this.bluetoothManager.getConnectionState(this.device, GATT) == 2;
