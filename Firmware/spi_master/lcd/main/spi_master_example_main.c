@@ -187,7 +187,7 @@ void wr_reg_test(spi_device_handle_t spi)
     printf("Read data: %02x\n", read_data);
 }
 
-void read_xaxis(spi_device_handle_t spi)
+uint16_t read_xaxis(spi_device_handle_t spi)
 {
     uint8_t read_reg = 0x29;
     uint8_t read_data;
@@ -203,10 +203,11 @@ void read_xaxis(spi_device_handle_t spi)
     data_storage |= read_data;
     //printf("%i\n", data_storage); //raw value
     data_storage = data_storage * 0.061;
-    printf("Read x data: %i\n", data_storage);
+    // printf("Read x data: %i\n", data_storage);
+    return data_storage;
 }
 
-void read_yaxis(spi_device_handle_t spi)
+int16_t read_yaxis(spi_device_handle_t spi)
 {
     uint8_t read_reg = 0x2B;
     uint8_t read_data;
@@ -221,10 +222,11 @@ void read_yaxis(spi_device_handle_t spi)
     lis2dw12_read_reg(spi, read_reg, &read_data);
     data_storage |= read_data;
     data_storage = data_storage * 0.061;
-    printf("Read y data: %i\n", data_storage);
+    // printf("Read y data: %i\n", data_storage);
+    return data_storage;
 }
 
-void read_zaxis(spi_device_handle_t spi)
+int16_t read_zaxis(spi_device_handle_t spi)
 {
     uint8_t read_reg = 0x2D;
     uint8_t read_data;
@@ -239,9 +241,105 @@ void read_zaxis(spi_device_handle_t spi)
     lis2dw12_read_reg(spi, read_reg, &read_data);
     data_storage |= read_data;
     data_storage = data_storage * 0.061;
-    printf("Read z data: %i\n\n\n", data_storage);
+    // printf("Read z data: %i\n", data_storage);
+    return data_storage;
 }
 
+void filters(int16_t x_accel[], int16_t y_accel[], int16_t z_accel[],\
+            int16_t x_grav[], int16_t y_grav[], int16_t z_grav[],\
+            int16_t x_user[], int16_t y_user[], int16_t z_user[],\
+            int16_t x_finished[], int16_t y_finished[], int16_t z_finished[])
+{
+    x_finished[2] = x_finished[1];
+    y_finished[2] = y_finished[1];
+    z_finished[2] = z_finished[1];
+
+    x_finished[1] = x_finished[0];
+    y_finished[1] = y_finished[0];
+    z_finished[1] = z_finished[0];
+
+    //Low pass 0.5Hz
+    double alpha[] = {1.00, -1.979133761292768, 0.979521463540373};
+    double beta[] = {0.000086384997973502, 0.000172769995947004, 0.000086384997973502};
+
+    x_grav[0] = alpha[0] * ((x_accel[0]*beta[0]) + (x_accel[1]*beta[1]) + (x_accel[2]*beta[2])\
+    - (x_grav[1]*alpha[1]) - (x_grav[2]*alpha[2]));
+
+    y_grav[0] = alpha[0] * ((y_accel[0]*beta[0]) + (y_accel[1]*beta[1]) + (y_accel[2]*beta[2])\
+    - (y_grav[1]*alpha[1]) - (y_grav[2]*alpha[2]));
+        
+    z_grav[0] = alpha[0] * ((z_accel[0]*beta[0]) + (z_accel[1]*beta[1]) + (z_accel[2]*beta[2])\
+    - (z_grav[1]*alpha[1]) - (z_grav[2]*alpha[2]));
+
+    //Equation for getting the user acceleration from accelerometer reading - gravity measurement 
+    x_user[0] = x_accel[0] - x_grav[0];
+    y_user[0] = y_accel[0] - y_grav[0];
+    z_user[0] = z_accel[0] - z_grav[0];
+
+    //Dot product user_accel and grav_accel
+    x_finished[0] = x_user[0] * x_grav[0];
+    y_finished[0] = y_user[0] * y_grav[0];
+    z_finished[0] = z_user[0] * z_grav[0];   
+
+    //Low pass 5Hz
+    alpha[0] = 1.00;
+    alpha[1] = -1.80898117793047;
+    alpha[2] = 0.827224480562408;
+    beta[0] = 0.095465967120306;
+    beta[1] = -0.172688631608676;
+    beta[2] = 0.095465967120306;
+
+    x_finished[0] = alpha[0] * ((x_accel[0]*beta[0]) + (x_accel[1]*beta[1]) + (x_accel[2]*beta[2])\
+    - (x_finished[1]*alpha[1]) - (x_finished[2]*alpha[2]));
+
+    y_finished[0] = alpha[0] * ((y_accel[0]*beta[0]) + (y_accel[1]*beta[1]) + (y_accel[2]*beta[2])\
+    - (y_finished[1]*alpha[1]) - (y_finished[2]*alpha[2]));
+    
+    z_finished[0] = alpha[0] * ((z_accel[0]*beta[0]) + (z_accel[1]*beta[1]) + (z_accel[2]*beta[2])\
+    - (z_finished[1]*alpha[1]) - (z_finished[2]*alpha[2]));
+
+    //High pass 1Hz
+    alpha[0] = 1.00;
+    alpha[1] = -1.905384612118461;
+    alpha[2] = 0.910092542787947;
+    beta[0] = 0.953986986993339;
+    beta[1] = -1.907503180919730;
+    beta[2] = 0.953986986993339;
+
+    x_finished[0] = alpha[0] * ((x_accel[0]*beta[0]) + (x_accel[1]*beta[1]) + (x_accel[2]*beta[2])\
+    - (x_finished[1]*alpha[1]) - (x_finished[2]*alpha[2]));
+
+    y_finished[0] = alpha[0] * ((y_accel[0]*beta[0]) + (y_accel[1]*beta[1]) + (y_accel[2]*beta[2])\
+    - (y_finished[1]*alpha[1]) - (y_finished[2]*alpha[2]));
+    
+    z_finished[0] = alpha[0] * ((z_accel[0]*beta[0]) + (z_accel[1]*beta[1]) + (z_accel[2]*beta[2])\
+    - (z_finished[1]*alpha[1]) - (z_finished[2]*alpha[2]));
+
+    //Increment the arrays
+    x_accel[2] = x_accel[1];
+    y_accel[2] = y_accel[1];
+    z_accel[2] = z_accel[1];
+
+    x_accel[1] = x_accel[0];
+    y_accel[1] = y_accel[0];
+    z_accel[1] = z_accel[0];
+
+    x_grav[2] = x_grav[1];
+    y_grav[2] = y_grav[1];
+    z_grav[2] = z_grav[1];
+
+    x_grav[1] = x_grav[0];
+    y_grav[1] = y_grav[0];
+    z_grav[1] = z_grav[0];  
+
+    x_user[2] = x_user[1];
+    y_user[2] = y_user[1];
+    z_user[2] = z_user[1]; 
+
+    x_user[1] = x_user[0];
+    y_user[1] = y_user[0];
+    z_user[1] = z_user[0]; 
+}
 
 void app_main(void)
 {
@@ -271,8 +369,6 @@ void app_main(void)
     //Attach the LCD to the SPI bus
     ret=spi_bus_add_device(LCD_HOST, &devcfg, &spi);
     ESP_ERROR_CHECK(ret);
-    //Setup delay for later use
-    const TickType_t xDelay = 625 / portTICK_PERIOD_MS;
 
     cs_gpio_settings();
 
@@ -283,16 +379,37 @@ void app_main(void)
     lis2dw12_write_reg(spi, 0x20, 0x10); // Control register 1, low power mode 1.6Hz
     lis2dw12_write_reg(spi, 0x25, 0x04); // Control register 6, low noise on
 
+    //Initilize the values that willbe used for filtering the accelerometer values
+    int16_t x_accel[3] ={0,0,0}; 
+    int16_t y_accel[3] ={0,0,0}; 
+    int16_t z_accel[3] ={0,0,0};
+
+    int16_t x_grav[3] ={0,0,0}; 
+    int16_t y_grav[3] ={0,0,0}; 
+    int16_t z_grav[3] ={0,0,0}; 
+
+    int16_t x_user[3] ={0,0,0}; 
+    int16_t y_user[3] ={0,0,0}; 
+    int16_t z_user[3] ={0,0,0}; 
+
+    int16_t x_finished[3] ={0,0,0}; 
+    int16_t y_finished[3] ={0,0,0}; 
+    int16_t z_finished[3] ={0,0,0}; 
+
     while(1)
     {
-        read_xaxis(spi);
-        // vTaskDelay(xDelay);
+        x_accel[0] = read_xaxis(spi);
+        // printf("x_accel = %d, x_filtered_accel = %d\n", x_accel[0], x_finished[0]);
+        y_accel[0] = read_yaxis(spi);
 
-        read_yaxis(spi);
-        // vTaskDelay(xDelay);
+        z_accel[0] = read_zaxis(spi);
 
-        read_zaxis(spi);
-        vTaskDelay(xDelay);
+        filters(x_accel, y_accel, z_accel, x_grav, y_grav, z_grav, x_user, y_user, z_user, x_finished, y_finished, z_finished);
+        printf("%d,%d,%d\n", x_finished[0],y_finished[0],z_finished[0]);
+        // printf("y_accel = %d, y_filtered_accel = %d\n", y_accel[0], y_finished[0]);
+        // printf("z_accel = %d, z_filtered_accel = %d\n\n\n", z_accel[0], z_finished[0]);
 
+        // Delay for 100 reads per second
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
