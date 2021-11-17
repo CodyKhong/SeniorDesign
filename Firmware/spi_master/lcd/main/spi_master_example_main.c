@@ -341,6 +341,31 @@ void filters(int16_t x_accel[], int16_t y_accel[], int16_t z_accel[],\
     z_user[1] = z_user[0]; 
 }
 
+//Counts the number of steps the accelerometer has experienced
+uint16_t step_counter(int16_t x_finished[], int16_t y_finished[], int16_t z_finished[], uint16_t *steps, bool *step_flag)
+{
+    int16_t pos_threshold = 300;
+
+    //Count a step if we pass threshold and the previous values was below and the flag isnt set
+    if ( ((x_finished[0] >= pos_threshold) && (x_finished[1] <= pos_threshold) && (*step_flag == 0)) ||\
+         ((y_finished[0] >= pos_threshold) && (y_finished[1] <= pos_threshold) && (*step_flag == 0)) ||\
+         ((z_finished[0] >= pos_threshold) && (z_finished[1] <= pos_threshold) && (*step_flag == 0))  )
+    {
+        printf("Steps = %d\n", *steps);
+        (*steps)++;
+        *step_flag = 1;
+    }
+    
+    if ( ((x_finished[0] <= pos_threshold) && (x_finished[1] >= pos_threshold) && (*step_flag == 1)) ||\
+         ((y_finished[0] <= pos_threshold) && (y_finished[1] >= pos_threshold) && (*step_flag == 1)) ||\
+         ((z_finished[0] <= pos_threshold) && (z_finished[1] >= pos_threshold) && (*step_flag == 1))  )
+         {
+            *step_flag = 0;
+         }
+
+        return *steps;
+}
+
 void app_main(void)
 {
 
@@ -376,7 +401,7 @@ void app_main(void)
 
     wr_reg_test(spi);
 
-    lis2dw12_write_reg(spi, 0x20, 0x10); // Control register 1, low power mode 1.6Hz
+    lis2dw12_write_reg(spi, 0x20, 0x30); // Control register 1, low power mode 1.6Hz
     lis2dw12_write_reg(spi, 0x25, 0x04); // Control register 6, low noise on
 
     //Initilize the values that willbe used for filtering the accelerometer values
@@ -394,22 +419,40 @@ void app_main(void)
 
     int16_t x_finished[3] ={0,0,0}; 
     int16_t y_finished[3] ={0,0,0}; 
-    int16_t z_finished[3] ={0,0,0}; 
+    int16_t z_finished[3] ={0,0,0};
+
+    uint16_t num_steps = 0;
+    uint16_t num_steps_last = 0;
+    uint16_t min_measurements_between_steps = 2;
+    bool step_flag = 0;
+    bool steps_too_fast_flag = 0;
 
     while(1)
     {
         x_accel[0] = read_xaxis(spi);
-        // printf("x_accel = %d, x_filtered_accel = %d\n", x_accel[0], x_finished[0]);
         y_accel[0] = read_yaxis(spi);
-
         z_accel[0] = read_zaxis(spi);
 
         filters(x_accel, y_accel, z_accel, x_grav, y_grav, z_grav, x_user, y_user, z_user, x_finished, y_finished, z_finished);
         printf("%d,%d,%d\n", x_finished[0],y_finished[0],z_finished[0]);
-        // printf("y_accel = %d, y_filtered_accel = %d\n", y_accel[0], y_finished[0]);
-        // printf("z_accel = %d, z_filtered_accel = %d\n\n\n", z_accel[0], z_finished[0]);
 
-        // Delay for 100 reads per second
-        vTaskDelay(10 / portTICK_PERIOD_MS);
+        if (steps_too_fast_flag == 1)
+        {
+            vTaskDelay((100 * min_measurements_between_steps)  / portTICK_PERIOD_MS);
+            steps_too_fast_flag = 0;
+        }
+
+        num_steps = step_counter(x_finished, y_finished, z_finished, &num_steps, &step_flag);
+
+        if (num_steps != num_steps_last)
+        {
+            printf("You have done %d steps today!\n", num_steps);
+            steps_too_fast_flag = 1;
+        }
+
+        num_steps_last = num_steps;
+
+        // Delay so we get 10 reads per second
+        vTaskDelay(100 / portTICK_PERIOD_MS);
     }
 }
