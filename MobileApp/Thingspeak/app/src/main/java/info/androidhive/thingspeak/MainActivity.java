@@ -22,14 +22,11 @@ import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
     private TextView status;
-    private TextView acc_status;
     private TextView note;
     private Button download;
-    private Button acc_download;
     private Button upload;
     private RequestQueue mQueue;
     public String Status;
-    public String acc_Status;
     public String dataUP;
 
 
@@ -38,11 +35,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         status = findViewById(R. id. status);
-        acc_status = findViewById(R. id. textView2);
         note = findViewById(R. id. note);
         download = (Button) findViewById(R. id. button1);
         upload = (Button) findViewById(R. id. button2);
-        acc_download = (Button) findViewById(R. id. button);
         mQueue= Volley.newRequestQueue(this);
 
         download.setOnClickListener(new View.OnClickListener() {
@@ -51,13 +46,6 @@ public class MainActivity extends AppCompatActivity {
                                           jsonParse();
                                       }
                                   });
-
-        acc_download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v){
-                jsonParse1();
-            }
-        });
 
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,30 +82,6 @@ public class MainActivity extends AppCompatActivity {
         });
         mQueue.add(request); }
 
-    public void jsonParse1() {
-        String urlfeed = "https://api.thingspeak.com/channels/1502861/feeds.json?api_key=AZBKPYY7B3KKION9&results=1"; //change this with you http request "READ A CHANNEL FEED"
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urlfeed, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONArray jsonArray = response.getJSONArray("feeds");
-                            JSONObject feeds = jsonArray.getJSONObject(0);
-                            acc_Status = feeds.getString("field2");
-                            acc_status.setText(acc_Status);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-            }
-        });
-        mQueue.add(request); }
-
 
 
     public void urlreq() {
@@ -125,12 +89,12 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         final String base = "https://api.thingspeak.com/update?";
         final String api_key = "api_key";
-        final String field_3 = "field3";
+        final String field_1 = "field1";
 
         // Build up the query URI
         Uri builtURI = Uri.parse(base).buildUpon()
                 .appendQueryParameter(api_key, "RX257VSH16FJ63TH") //change this with your write api key
-                .appendQueryParameter(field_3, dataUP )
+                .appendQueryParameter(field_1, dataUP )
                 .build();
         String url = builtURI.toString();
 
