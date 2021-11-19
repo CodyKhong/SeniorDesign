@@ -10,7 +10,7 @@
 #define CHARACTERISTIC_UUID    "0000ffe1-0000-1000-8000-00805f9b34fb"
 //#define CHARACTERISTIC_UUID_TX "0000ffe2-0000-1000-8000-00805f9b34fb"
 #define colorSaturation 255
-#define MAX_DATA_SIZE 128   // Max transmit data size in bit
+#define MAX_DATA_SIZE 16   // Max transmit data size in bit
 
 #define LED_STATE 0x01
 #define LED_COLOR 0x02
@@ -275,14 +275,14 @@ void createCMD(char dataType, int dataSize, char *cmdData, char *cmd)
 }
 
 // Receive data, send data through BLE, return 0 if data transmit success
-int sendData(BLECharacteristic *pCharacteristic, char *cmd)
+int sendData(BLECharacteristic *pCharacteristic, char *data)
 {
   char cmd[MAX_DATA_SIZE];
 
   createCMD(TEMP_DATA, 1, data, cmd);
   
   printf("\ntest point in sendData prior to message send.\n");
-  pCharacteristic->setValue(cmdData);
+  pCharacteristic->setValue(cmd);
  
   return 0;
 }
@@ -291,7 +291,7 @@ int sendTemp(BLECharacteristic *pCharacteristic)
 {
   char data[MAX_DATA_SIZE] = {0x55};
   printf("Received temp request.\n");
-  sendData(data);
+  sendData(pCharacteristic, data);
   printf("Temp data sent.\n");
 
   return 0;
