@@ -1,1 +1,1 @@
-This is Jesse's code repository for storing test code as well as opperational code.
+You better thank this amazing nugget for her hard work :)
