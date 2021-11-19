@@ -259,45 +259,39 @@ int ledColor(byte red, byte green, byte blue)
   return 0;
 }
 
-char *createCMD(char dataType, int dataSize, char *cmdData)
+void createCMD(char dataType, int dataSize, char *cmdData, char *cmd)
 {
-  char cmd[dataSize + 3];
+  int i;
 
-  printf("test point in createCMD - 00\n");
   cmd[0] = dataType;
-  printf("test point in createCMD - 01\n");
   cmd[1] = dataSize;
-  for(int i = 0; i < dataSize; i++)
+
+  for(i = 0; i < dataSize; i++)
   {
-    printf("test point in createCMD - i = %d\n", i);
     cmd[i + 2] = cmdData[i];
   }
-  printf("test point in createCMD - 10\n");
+
   cmd[dataSize + 3] = '\0';
-  printf("test point in createCMD - 11\n");
-  return cmd;
 }
 
 // Receive data, send data through BLE, return 0 if data transmit success
 int sendData(BLECharacteristic *pCharacteristic, char *cmd)
 {
-  char cmdData[MAX_DATA_SIZE];
-  strcpy(cmdData, cmd);
-  for (int i = 0; i < 4; i++)
-  {
-    printf("%x", cmdData[i];)
-  }
+  char cmd[MAX_DATA_SIZE];
+
+  createCMD(TEMP_DATA, 1, data, cmd);
+  
   printf("\ntest point in sendData prior to message send.\n");
   pCharacteristic->setValue(cmdData);
  
- return 0;
+  return 0;
 }
 
 int sendTemp(BLECharacteristic *pCharacteristic)
 {
   char data[MAX_DATA_SIZE] = {0x55};
   printf("Received temp request.\n");
-  sendData(pCharacteristic, createCMD(TEMP_DATA, 1, data));
+  sendData(data);
   printf("Temp data sent.\n");
 
   return 0;
