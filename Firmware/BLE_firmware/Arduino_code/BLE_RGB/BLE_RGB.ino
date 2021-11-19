@@ -285,7 +285,7 @@ int sendData(BLECharacteristic *pCharacteristic, char *cmd)
   strcpy(cmdData, cmd);
   for (int i = 0; i < 4; i++)
   {
-    printf("%x", cmdData[i];)
+    printf("%x", cmd[i]);
   }
   printf("\ntest point in sendData prior to message send.\n");
   pCharacteristic->setValue(cmdData);
