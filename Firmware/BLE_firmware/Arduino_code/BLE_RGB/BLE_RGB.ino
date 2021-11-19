@@ -277,19 +277,10 @@ void createCMD(char dataType, int dataSize, char *cmdData, char *cmd)
 // Receive data, send data through BLE, return 0 if data transmit success
 int sendData(BLECharacteristic *pCharacteristic, char *cmd)
 {
-<<<<<<< HEAD
   char cmd[MAX_DATA_SIZE];
 
   createCMD(TEMP_DATA, 1, data, cmd);
   
-=======
-  char cmdData[MAX_DATA_SIZE];
-  strcpy(cmdData, cmd);
-  for (int i = 0; i < 4; i++)
-  {
-    printf("%x", cmd[i]);
-  }
->>>>>>> ba77849d0b7e365e4dfb24b41526483169ae7c93
   printf("\ntest point in sendData prior to message send.\n");
   pCharacteristic->setValue(cmdData);
  
