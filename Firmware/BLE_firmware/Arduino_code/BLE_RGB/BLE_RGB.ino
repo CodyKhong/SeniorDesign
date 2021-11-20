@@ -7,8 +7,8 @@
 #include <NeoPixelBus.h>
 
 #define SERVICE_UUID           "0000ffe0-0000-1000-8000-00805f9b34fb" // UART service UUID
-#define CHARACTERISTIC_UUID    "0000ffe1-0000-1000-8000-00805f9b34fb"
-//#define CHARACTERISTIC_UUID_TX "0000ffe2-0000-1000-8000-00805f9b34fb"
+// #define CHARACTERISTIC_UUID    "0000ffe1-0000-1000-8000-00805f9b34fb"
+#define CHARACTERISTIC_UUID_TX "0000ffe2-0000-1000-8000-00805f9b34fb"
 #define colorSaturation 255
 #define MAX_DATA_SIZE 16   // Max transmit data size in bit
 
@@ -117,16 +117,16 @@ void setup() {
   BLEService *pService = pServer->createService(SERVICE_UUID);
 
   // Create a BLE
-  /*BLECharacteristic *pCharacteristic = pService->createCharacteristic(
+  BLECharacteristic *pCharacteristic = pService->createCharacteristic(
                       CHARACTERISTIC_UUID_TX,
                       BLECharacteristic::PROPERTY_NOTIFY
                     );
-    pCharacteristic->addDescriptor(new BLE2902());*/
-  BLECharacteristic *pCharacteristic = pService->createCharacteristic(
+  /*BLECharacteristic *pCharacteristic = pService->createCharacteristic(
                                          CHARACTERISTIC_UUID,
                                          BLECharacteristic::PROPERTY_READ |
                                          BLECharacteristic::PROPERTY_WRITE
-                                       );
+                                       );*/
+  pCharacteristic->addDescriptor(new BLE2902());
   pCharacteristic->setCallbacks(new MyCallbacks());
 
   // Start the service
@@ -324,6 +324,12 @@ void readCommand(BLECharacteristic *pCharacteristic)
     } 
     case LED_COLOR:
     {
+      printf("Recieved command: ");
+      for (int i = 0, i < 4, i++)
+      {
+        printf("%02x", receivedCommand[i]);
+      }
+      
       byte red = receivedCommand[2];
       byte green = receivedCommand[3];
       byte blue = receivedCommand[4];
