@@ -84,7 +84,7 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
             @Override
             public void onClick (View view){
                 new ColorPickerPopup.Builder(AdminDashboard.this)
-                        .initialColor(Color.RED)
+                        .initialColor(Color.WHITE)
                         .enableBrightness(true)
                         .enableAlpha(true)
                         .okTitle("Choose")
@@ -107,7 +107,7 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
                                 byte BlueByte = (byte)(color & 0xFF);
                                 String B = String.format("%8s", Integer.toBinaryString(BlueByte & 0xFF)).replace(' ', '0');
                                 log("LED switched to: " + hexColor);
-                                log("color is:" + color);
+//                                log("color is:" + color);
 //                                log("Red: "+ R);
 //                                log("Green: "+ G);
 //                                log("Blue: "+ B);
@@ -134,26 +134,7 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
                 openWifi();
             }
         });
-//
-//        Small = (Button) findViewById(R.id.smallDogButton);
-//        Medium = (Button) findViewById(R.id.mediumDogButton);
-//        Large = (Button) findViewById(R.id.largeDogButton);
-//
-//        Small.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Toast.makeText(AdminDashboard.this, "log",Toast.LENGTH_SHORT).show();
-//                mHandler.postDelayed(1,5000);
-//            }
-//        });
-//
-//        Handler handler = new Handler();
-//        handler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                log("Fuck you");
-//            }
-//        }, 5000);
+
 
         Button BLEReqButton = (Button) findViewById(R.id.bleReqButton);
         BLEReqButton.setOnClickListener(new View.OnClickListener() {
@@ -165,59 +146,32 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
 
     }
 
-//    public void SmallStart (){
-//        mRunnable.run();
-//    }
-
-//    public void MediumStart (){
-//        mRunnable.run();
-//    }
-//
-//    public void LargeStart (){
-//        mRunnable.run();
-//    }
-
-    public void Stop(){
-
-        mHandler.removeCallbacks(mRunnable);
-    }
-
-    private Runnable mRunnable = new Runnable() {
-        @Override
-        public void run() {
-            Toast.makeText(AdminDashboard.this, "log",Toast.LENGTH_SHORT).show();
-//            log("fuck you");
-            mHandler.postDelayed(this,5000);
-        }
-    };
-
     private void initSmall() {
         this.Small = findViewById(R.id.smallDogButton);
         this.Small.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                log("small button active");
+                int bathroom = -16711936;
+                int playtime = -14287043;
+                int feed = -65536;
                 try {
-                    Thread.sleep(4000);
-                    remoteControl.LEDSend(-65536);
+                    TimeUnit.SECONDS.sleep(2);
+                    remoteControl.LEDSend(bathroom);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 try {
-                    TimeUnit.SECONDS.sleep(5);
-                    remoteControl.LEDSend(-65536);
+                    TimeUnit.SECONDS.sleep(3);
+                    remoteControl.LEDSend(playtime);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                log("small button active1");
                 try {
-                    TimeUnit.SECONDS.sleep(10);
-                    remoteControl.LEDSend(-65536);
+                    TimeUnit.SECONDS.sleep(4);
+                    remoteControl.LEDSend(feed);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                log("small button active2");
-                remoteControl.LEDSend(-65536);
             }
         });
     }
@@ -227,7 +181,27 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
         this.Medium.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                log("medium button active");
+                int bathroom = -16711681;
+                int playtime = -1109505;
+                int feed = -590075;
+                try {
+                    TimeUnit.SECONDS.sleep(6);
+                    remoteControl.LEDSend(bathroom);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    TimeUnit.SECONDS.sleep(5);
+                    remoteControl.LEDSend(playtime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    TimeUnit.SECONDS.sleep(7);
+                    remoteControl.LEDSend(feed);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -237,7 +211,27 @@ public class AdminDashboard extends AppCompatActivity implements BLEControllerLi
         this.Large.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                log("large button active");
+                int bathroom = -16731649;
+                int playtime = -14287043;
+                int feed = -65314;
+                try {
+                    TimeUnit.SECONDS.sleep(10);
+                    remoteControl.LEDSend(bathroom);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    TimeUnit.SECONDS.sleep(8);
+                    remoteControl.LEDSend(playtime);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    TimeUnit.SECONDS.sleep(9);
+                    remoteControl.LEDSend(feed);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }

@@ -102,7 +102,7 @@ public class WifiActivity extends AppCompatActivity {
     }
 
     public void jsonParse2() {
-        String urlfeed = "https://api.thingspeak.com/channels/1502861/feeds.json?api_key=AZBKPYY7B3KKION9&results=1"; //change this with you http request "READ A CHANNEL FEED"
+        String urlfeed = "https://api.thingspeak.com/channels/1502861/feeds.json?api_key=AZBKPYY7B3KKION9&results=1";
 //        String urlfeed = "https://api.thingspeak.com/channels/1502861/fields/2/last.json?api_key=AZBKPYY7B3KKION9";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, urlfeed, null,
                 new Response.Listener<JSONObject>() {
